@@ -1,0 +1,45 @@
+1) django-admin startproject django_project (pravljenje projekta)
+2) python3 manage.py runserver (pokretanje servera)
+3) python3 manage.py startapp blog (kreira blog aplikaciju)
+
+lsof -t -i tcp:8000 | xargs kill -9
+
+
+* napravi se urls.py u blog app
+
+* blog -> templates -> blog -> htmlovi
+
+* doda se BlogConfig u settings project-a
+
+* static folder u app-u
+
+* {% load static %} na vrhu template-a
+* <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+ 
+// za admina
+* $ python3 manage.py migrate 
+* $ python3 manage.py createsuperuser
+
+
+// promene u bazi (cak i ako je vec napravljena sa makemigrations i migrate naprave se promene)
+* $ python3 manage.py makemigrations
+* $ python3 manage.py migrate 
+
+
+* $ python3 manage.py shell
+
+// za rad sa bazom 
+* Post.objects.all()
+* user = User.objects.filter(username='stefan29').first()
+* post_2 = Post(title='Blog 2', content='Second post content', author_id = user.id || author = user)
+* post_2.save()
+
+* user.post_set.all()
+* user.post_set.create(title='Blog 3', content='Third post content!')
+
+* importovati modele u blog/admin.py
+
+* signali u signals.py reakcija na save ili create Usera
+* dodati u apps.py ready metod
+
+* pip3 install django-cleanup 
