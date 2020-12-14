@@ -3,7 +3,11 @@
 <html>
     <head>
         <title>Blogs | Blog app</title>
-        <link rel="stylesheet" type='text/css' href="{% static 'blog/main.css' %}" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'blog/css/style.css' %}"
+        />
         <link
             rel="shortcut icon"
             type="image/png"
@@ -21,10 +25,19 @@
             <nav class="nav">
                 <div class="nav__section nav__section--pages">
                     <li class="nav__item">
-                        <a class="nav__link nav__link--logo" href="/"
-
-                            <span>Add</span></a
-                        >
+                        <a class="nav__link nav__link--logo" href="/">
+                            <span>Add</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--logo" href="/">
+                            <span>Add</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--logo" href="/">
+                            <span>Add</span>
+                        </a>
                     </li>
                 </div>
                 <div class="nav__section nav__section--user">
@@ -62,131 +75,9 @@
                             </p>
                         </div>
                     </div>
-                    <div class="blog">
-                        <div class="blog__hero">
-                            <div class="blog__actions"></div>
-                            <img
-                                src="/uploads/7d31d7ca-57db-47d9-b68e-cfaef535b526.jpeg"
-                                alt="blog photo"
-                            />
-                            <h2 class="title">
-                                <a href="/blog/food-rewiew">Food review</a>
-                            </h2>
-                        </div>
-                        <div class="blog__details">
-                            <p>
-                                Cras semper auctor neque vitae tempus quam.
-                                Nulla at volutpat diam ut venenatis tellus in.
-                                Feugiat nisl pretium fusce id velit ut tortor.
-                                Bibendum arcu vitae elementum curabitur vitae
-                                nunc
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog__hero">
-                            <div class="blog__actions"></div>
-                            <img
-                                src="/uploads/e068f3f1-b4c1-4da9-b4c2-dd487b23e6d6.jpeg"
-                                alt="blog photo"
-                            />
-                            <h2 class="title">
-                                <a href="/blog/ho">Holliday</a>
-                            </h2>
-                        </div>
-                        <div class="blog__details">
-                            <p>
-                                Lorem sed risus ultricies tristique nulla
-                                aliquet enim tortor at. Velit dignissim sodales
-                                ut eu sem integer vitae. Scelerisque mauris
-                                pellentesque pulvinar pellentesque habitant
-                                morbi tristique senectus. Mi ipsum faucibus
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog__hero">
-                            <div class="blog__actions"></div>
-                            <img
-                                src="/uploads/1a99e3dd-6a77-4566-b354-a084dcd1a4a1.jpeg"
-                                alt="blog photo"
-                            />
-                            <h2 class="title">
-                                <a href="/blog/journey">Journey</a>
-                            </h2>
-                        </div>
-                        <div class="blog__details">
-                            <p>
-                                Lorem sed risus ultricies tristique nulla
-                                aliquet enim tortor at. Velit dignissim sodales
-                                ut eu sem integer vitae. Scelerisque mauris
-                                pellentesque pulvinar pellentesque habitant
-                                morbi tristique senectus. Mi ipsum faucibus
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog__hero">
-                            <div class="blog__actions"></div>
-                            <img
-                                src="/uploads/f3bcd246-4878-432d-babd-573b1628d84a.jpeg"
-                                alt="blog photo"
-                            />
-                            <h2 class="title">
-                                <a href="/blog/restaurant-review"
-                                    >Restaurant review</a
-                                >
-                            </h2>
-                        </div>
-                        <div class="blog__details">
-                            <p>
-                                Cras semper auctor neque vitae tempus quam.
-                                Nulla at volutpat diam ut venenatis tellus in.
-                                Feugiat nisl pretium fusce id velit ut tortor.
-                                Bibendum arcu vitae elementum curabitur vitae
-                                nunc
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog__hero">
-                            <div class="blog__actions"></div>
-                            <img
-                                src="/uploads/e9b62ae2-ed1b-460b-934f-e70e8d00a4a5.png"
-                                alt="blog photo"
-                            />
-                            <h2 class="title">
-                                <a href="/blog/winter-travel">Winter travel</a>
-                            </h2>
-                        </div>
-                        <div class="blog__details">
-                            <p>
-                                Pretium viverra suspendisse potenti nullam ac
-                                tortor vitae purus. Diam maecenas ultricies mi
-                                eget mauris pharetra et. Amet luctus venenatis
-                                lectus magna fringilla urna porttitor rhoncus.
-                                Blandit aliquam etiam erat
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="blog__hero">
-                            <div class="blog__actions"></div>
-                            <img
-                                src="/uploads/97157a6e-e96a-4491-956e-5d90c2840566.jpeg"
-                                alt="blog photo"
-                            />
-                            <h2 class="title">
-                                <a href="/blog/novi-blog">Novi blog</a>
-                            </h2>
-                        </div>
-                        <div class="blog__details"><p>Neki tekst</p></div>
-                    </div>
                 </div>
             </div>
         </div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ycobB5RiavbXpJBo0Muz2komaqqvGv0&amp;libraries=places"></script>
         <script src="/dist/App.bundle.js"></script>
-        <script src="/dist/Submit.bundle.js"></script>
     </body>
 </html>
