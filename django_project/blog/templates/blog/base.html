@@ -15,7 +15,7 @@
         <link
             rel="shortcut icon"
             type="image/png"
-            href="/images/icons/blogger.png"
+            href="{% static 'blog/images/icons/blogger.png' %}"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link nav__link{% if request.path == '/blogs' %}--active{% endif %}" href="/blogs">
+                        <a class="nav__link nav__link{% if '/blogs' in request.path %}--active{% endif %}" href="/blogs">
                             <span>Blogs</span>
                         </a>
                     </li>
