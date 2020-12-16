@@ -29,22 +29,25 @@
             <nav class="nav">
                 <div class="nav__section nav__section--pages">
                     <li class="nav__item">
-                        <a class="nav__link nav__link--logo" href="/">
+                        <a class="nav__link nav__link--logo" href="{% url 'blog-home' %}">
                             <img src="{% static 'blog/images/icons/logo.svg' %}" alt="blog logo">
                         </a>
                     </li>
                     <li class="nav__item">
                         <a class="nav__link nav__link{% if '/blogs' in request.path %}--active{% endif %}" href="/blogs">
+                            <img src="{% static 'blog/images/icons/blog.svg' %}" alt="">
                             <span>Blogs</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link nav__link{% if request.path == '/myblogs' %}--active{% endif %}" href="myblogs">
+                        <a class="nav__link nav__link{% if request.path == '/myblogs' %}--active{% endif %}" href="/myblogs">
+                            <img src="{% static 'blog/images/icons/blogs.svg' %}" alt="">
                             <span>My Blogs</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link nav__link{% if request.path == '/add' %}--active{% endif %}" href="/">
+                        <a class="nav__link nav__link{% if request.path == '/add' %}--active{% endif %}" href="/add">
+                            <img src="{% static 'blog/images/icons/add.svg' %}" alt="">
                             <span>Add</span>
                         </a>
                     </li>
@@ -64,10 +67,25 @@
                 </div>
             </nav>
         </header>
-        <div class="content">
+        {% block messages %}
             <div class="inner">
-                
+                <div class="flash-messages">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="flash flash--{{ message.tags }}">
+                                <p class="flash__text">{{ message }}</p>
+                                <button class="flash__remove" onclick="this.parentElement.remove()">&times;</button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
+        {% endblock messages %}
+            
+
+        <div class="content">
+            {% block content %}
+            {% endblock content %}
         </div>
     </body>
 </html>
