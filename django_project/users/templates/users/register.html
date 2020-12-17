@@ -1,10 +1,27 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
     <div class="inner">
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                   <div class="flash flash--error">
+                        <p class="flash__text">{{ error|escape }}</p>
+                        <button class="flash__remove" onclick="this.parentElement.remove()">&times;</button>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}    
+        {% endif %}
+
         <form  method='POST' class="form">
             {% csrf_token %}
             <h2>Register</h2>
-            {{ form }}
+            {{ form|crispy }}
             <input type="submit" value='Register' name='register' class="button save">
         </form>
     </div>

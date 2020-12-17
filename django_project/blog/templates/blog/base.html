@@ -7,6 +7,8 @@
         {% else %}
             <title>Blog app</title>
         {% endif %}
+         {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> {% endcomment %}
+
         <link
             rel="stylesheet"
             type="text/css"
@@ -59,7 +61,7 @@
                         <li class="nav__item">
                             <a class="nav__link" href="{% url 'register' %}">Register</a>
                         </li>
-                        <li class="nav__item">
+                        <li class="nav__item">  
                             <a class="nav__link" href="/login">Log In</a>
                         </li>
                     {% endif %}
@@ -68,24 +70,25 @@
             </nav>
         </header>
         {% block messages %}
+            {% if messages %}
             <div class="inner">
                 <div class="flash-messages">
-                    {% if messages %}
                         {% for message in messages %}
                             <div class="flash flash--{{ message.tags }}">
                                 <p class="flash__text">{{ message }}</p>
                                 <button class="flash__remove" onclick="this.parentElement.remove()">&times;</button>
                             </div>
                         {% endfor %}
-                    {% endif %}
                 </div>
             </div>
+            {% endif %}
         {% endblock messages %}
-            
 
         <div class="content">
             {% block content %}
             {% endblock content %}
         </div>
+        
+  </body>
     </body>
 </html>
