@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib import messages # success, error, info, warning
+from django.contrib import messages 
 from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     if request.method == 'POST':
@@ -31,3 +31,7 @@ class MyLogoutView(SuccessMessageMixin, LogoutView):
         response = super().dispatch(request, *args, **kwargs)
         messages.add_message(request, messages.INFO, 'Successfully logged out.')
         return response
+
+@login_required # samo za metode
+def account(request):
+    return render(request, 'users/profile.html')
