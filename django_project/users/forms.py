@@ -11,6 +11,4 @@ class UserRegisterForm(UserCreationForm):
         model = User # model sa kojim forma interaguje
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
-        widgets = {
-          'email': forms.EmailInput(attrs={'class': 'form-control custom-class'}),
-        }
+        

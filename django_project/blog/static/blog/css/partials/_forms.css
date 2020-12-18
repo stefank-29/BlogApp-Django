@@ -8,6 +8,7 @@ textarea {
     resize: none;
     white-space: pre-wrap;
     font-family: 'Roboto', sans-serif;
+    border-radius: 4px;
 }
 input:focus,
 textarea:focus {
@@ -25,11 +26,11 @@ label {
 }
 .form {
     background: white;
-    padding: 2rem;
+    padding: 3rem;
     box-shadow: linear-gradient(90deg, #48ded4 0%, #e82c75 35%, rgb(255, 196, 0) 75%, #33e2d7 95%);
 }
 .form {
-    margin-top: 4rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
 }
 .form h2 {
@@ -60,7 +61,7 @@ input.button:hover {
 /**** form error messages ****/
 .error .controls p strong {
     color: red !important;
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
 }
 
 .error input {
@@ -72,4 +73,18 @@ input.button:hover {
 .controls li {
     color: rgba(0, 0, 0, 0.8);
     font-family: sans-serif;
+}
+
+/***** login error message ******/
+.alert-error {
+    padding: 1rem 0;
+    background-color: rgba(216, 44, 44, 0.3);
+    width: 90%;
+    margin-bottom: 0.5rem;
+}
+
+.alert-error ul {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: rgb(145, 19, 19);
 }
