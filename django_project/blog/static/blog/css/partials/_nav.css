@@ -12,6 +12,7 @@
 
 .nav__item {
     display: flex;
+    align-items: center;
 }
 .nav__link {
     background: black;
@@ -42,13 +43,7 @@
 .nav__link--active {
     border-bottom-color: rgba(0, 0, 0, 0.2);
     border-right-color: rgba(0, 0, 0, 0.05);
-    background: linear-gradient(
-            90deg,
-            #e04d20 0%,
-            rgb(241, 198, 3) 50%,
-            #13e247 95%
-        )
-        fixed;
+    background: linear-gradient(90deg, #e04d20 0%, rgb(241, 198, 3) 50%, #13e247 95%) fixed;
 }
 .nav__link:hover img,
 .nav__link--active img {

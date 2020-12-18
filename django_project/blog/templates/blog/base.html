@@ -56,13 +56,22 @@
                 </div>
                 <div class="nav__section nav__section--user">
                     {% if user.is_authenticated %}
-
+                         <li class="nav__item">
+                           
+                            <a class="nav__link" href="{% url 'logout' %}">
+                                <img src="{% static 'blog/images/icons/logout.svg' %}" alt="">
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">  
+                            <a class="nav__link" href="{% url 'login' %}">Log In</a>
+                        </li>
                     {% else %}
                         <li class="nav__item">
                             <a class="nav__link" href="{% url 'register' %}">Register</a>
                         </li>
                         <li class="nav__item">  
-                            <a class="nav__link" href="/login">Log In</a>
+                            <a class="nav__link" href="{% url 'login' %}">Log In</a>
                         </li>
                     {% endif %}
 
