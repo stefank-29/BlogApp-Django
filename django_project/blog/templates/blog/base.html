@@ -57,21 +57,22 @@
                 <div class="nav__section nav__section--user">
                     {% if user.is_authenticated %}
                          <li class="nav__item">
-                           
-                            <a class="nav__link" href="{% url 'logout' %}">
+                            <a class="nav__link nav__link{% if  '/logout' in request.path %}--active{% endif %}" href="{% url 'logout' %}">
                                 <img src="{% static 'blog/images/icons/logout.svg' %}" alt="">
                                 <span>Logout</span>
                             </a>
                         </li>
                         <li class="nav__item">  
-                            <a class="nav__link" href="{% url 'profile' %}">Account</a>
+                            <a class="nav__link nav__link{% if 'profile' in request.path %}--active{% endif %}" href="{% url 'profile' %}">
+                                <img class='avatar' src="{{ user.profile.image.url }}" alt="users profile">
+                            </a>
                         </li>
                     {% else %}
                         <li class="nav__item">
-                            <a class="nav__link" href="{% url 'register' %}">Register</a>
+                            <a class="nav__link nav__link{% if '/register' in request.path %}--active{% endif %}" href="{% url 'register' %}">Register</a>
                         </li>
                         <li class="nav__item">  
-                            <a class="nav__link" href="{% url 'login' %}">Log In</a>
+                            <a class="nav__link nav__link{% if '/login' in request.path   %}--active{% endif %}" href="{% url 'login' %}">Log In</a>
                         </li>
                     {% endif %}
 
