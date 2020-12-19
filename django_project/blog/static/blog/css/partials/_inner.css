@@ -14,12 +14,7 @@ body {
 body::before {
     content: '';
     display: block;
-    background: linear-gradient(
-        90deg,
-        #e04d20 0%,
-        rgb(241, 198, 3) 50%,
-        #13e247 95%
-    );
+    background: linear-gradient(90deg, #e04d20 0%, rgb(241, 198, 3) 50%, #13e247 95%);
     height: 10px;
     width: 100%;
 }

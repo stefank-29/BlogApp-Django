@@ -33,5 +33,5 @@ class MyLogoutView(SuccessMessageMixin, LogoutView):
         return response
 
 @login_required # samo za metode
-def account(request):
+def profile(request):
     return render(request, 'users/profile.html')
