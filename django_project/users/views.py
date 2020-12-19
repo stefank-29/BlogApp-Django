@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages 
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 
 def register(request):
@@ -22,7 +22,6 @@ class MyLoginView(SuccessMessageMixin, LoginView):
     template_name = 'users/login.html'
     success_url = 'blog-home'
     success_message = 'You are successfully logged in!'
-
 class MyLogoutView(SuccessMessageMixin, LogoutView):
     template_name = 'users/logout.html'
     success_url = 'blog-home'
@@ -32,6 +31,26 @@ class MyLogoutView(SuccessMessageMixin, LogoutView):
         messages.add_message(request, messages.INFO, 'Successfully logged out.')
         return response
 
+
 @login_required # samo za metode
 def profile(request):
-    return render(request, 'users/profile.html')
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile') # mora redirekt da se ne okine post opet
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'users/profile.html', context)
+

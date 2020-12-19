@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="inner">
-        <form  method='POST' class="form">
+        <form  method='POST' class="form card">
             {% csrf_token %}
             <h2>Register</h2>
             {{ form|crispy }}

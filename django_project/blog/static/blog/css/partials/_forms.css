@@ -18,6 +18,10 @@ input.input--error,
 textarea.input--error {
     border-color: red;
 }
+input[type='file'] {
+    margin-top: 1rem;
+    width: 86%;
+}
 label {
     padding: 10px 0;
     font-size: 2rem;
