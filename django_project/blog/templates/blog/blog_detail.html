@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="single">
+        <div class="single__hero">
+            <img src="/media/user.svg" alt="blog photo" class="single__image">
+            <h2 class="title title--single">
+                <a href="/blog/{{blog.id}}"></a>
+            </h2>
+        
+        </div>
+        <div class="single__details inner">
+            <p class="single__date">
+                {{ blog.date_posted|date:"F d, Y" }}
+            </p>
+            <p>{{ blog.content }}</p>
+        </div>
+            
+            
+    
+    </div>
+
+
+{% endblock content %}
+
+
