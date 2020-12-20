@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Blog
 
 
@@ -18,11 +19,19 @@ class BlogListView(ListView):
 class BlogDetailView(DetailView):
     model = Blog
 
-class BlogCreateView(CreateView):
+class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog
     fields = ['title', 'content']
     
-
     def form_valid(self, form):  # postavi da je autor bloga ulogovani user pa onda validira
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class BlogUpdateView(LoginRequiredMixin, UpdateView):
+    model = Blog
+    fields = ['title', 'content']
+    
+    def form_valid(self, form):  
         form.instance.author = self.request.user
         return super().form_valid(form)

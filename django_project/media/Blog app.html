@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://localhost:8000/blog/1/update/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+            <title>Blog app</title>
+        
+         
+
+        <link rel="stylesheet" type="text/css" href="./Blog app_files/style.css">
+        <link rel="shortcut icon" type="image/png" href="http://localhost:8000/static/blog/images/icons/blogger.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="styelsheet" href="./Blog app_files/css2" type="text/css">
+    </head>
+    <body>
+        <header class="top">
+            <nav class="nav">
+                <div class="nav__section nav__section--pages">
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--logo" href="http://localhost:8000/">
+                            <img src="./Blog app_files/logo.svg" alt="blog logo">
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link nav__link" href="http://localhost:8000/blogs">
+                            <img src="./Blog app_files/blog.svg" alt="">
+                            <span>Blogs</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link nav__link" href="http://localhost:8000/myblogs">
+                            <img src="./Blog app_files/blogs.svg" alt="">
+                            <span>My Blogs</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link nav__link" href="http://localhost:8000/blog/add/">
+                            <img src="./Blog app_files/add.svg" alt="">
+                            <span>Add</span>
+                        </a>
+                    </li>
+                </div>
+                <div class="nav__section nav__section--user">
+                    
+                         <li class="nav__item">
+                            <a class="nav__link nav__link" href="http://localhost:8000/logout/">
+                                <img src="./Blog app_files/logout.svg" alt="">
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">  
+                            <a class="nav__link nav__link" href="http://localhost:8000/profile/">
+                                <img class="avatar" src="./Blog app_files/IMG_20180726_001338_368_JYa0Dt4.jpg" alt="users profile">
+                            </a>
+                        </li>
+                    
+
+                </div>
+            </nav>
+        </header>
+        
+            
+        
+
+        <div class="content">
+            
+    <div class="inner">
+        <form method="POST" class="form card">
+            <input type="hidden" name="csrfmiddlewaretoken" value="LAAFY5J8TDYqXoRlklukLqBhgS80msh77HZmC8KuvPFXzcqF37UsglaZ85SHpToR">
+            <h2>Blog Post</h2>
+            
+
+<div id="div_id_title" class="control-group"> <label for="id_title" class="control-label requiredField">
+                Title<span class="asteriskField">*</span> </label> <div class="controls"> <input type="text" name="title" value="Text" maxlength="100" class="textinput textInput" required="" id="id_title"> </div> </div> <div id="div_id_content" class="control-group"> <label for="id_content" class="control-label requiredField">
+                Content<span class="asteriskField">*</span> </label> <div class="controls"> <textarea name="content" cols="40" rows="10" class="textarea" required="" id="id_content">Nkeio</textarea> </div> </div>
+
+            <input type="submit" value="Post" name="post" class="button save">
+        </form>
+    </div>
+
+        </div>
+        
+  
+    
+
+</body></html>
