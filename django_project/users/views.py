@@ -4,6 +4,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages 
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 
 def register(request):
     if request.method == 'POST':
@@ -11,8 +12,11 @@ def register(request):
         if form.is_valid():
             form.save() 
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Your account is created! You are now able to login')        
-            return redirect('login')
+            messages.success(request, f'Your account is created! You are now logged in!') 
+            new_user = authenticate(username= form.cleaned_data['username'],
+                                    password= form.cleaned_data['password1'])    
+            login(request, new_user)  
+            return redirect('blog-home')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
@@ -22,6 +26,8 @@ class MyLoginView(SuccessMessageMixin, LoginView):
     template_name = 'users/login.html'
     success_url = 'blog-home'
     success_message = 'You are successfully logged in!'
+
+
 class MyLogoutView(SuccessMessageMixin, LogoutView):
     template_name = 'users/logout.html'
     success_url = 'blog-home'
