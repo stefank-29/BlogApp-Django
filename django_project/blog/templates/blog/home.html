@@ -3,6 +3,7 @@
     <div class="inner">
         <h2>BLOGS</h2>
         <div class="blogs">
+        {% if blogs %}
         {% for blog in blogs %}
                 <div class="blog">
                     <div class="blog__hero">
@@ -23,6 +24,8 @@
                 </div>
         {% endfor %}
         </div>
-
+        {% else %}
+        <h2>You don't have any blogs</h2>
+        {% endif %}
     </div>
 {% endblock content %}

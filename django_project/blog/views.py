@@ -3,6 +3,14 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Blog
 
+#TODO 
+#? 1 update i delete dugme u blog detail
+#? 2 update olovka
+#? 3 ime autora uz blog
+#? 4 moji blogovi da se izlistaju
+#? 5 paginacija
+#? 6 reset passworda i emaila
+
 
 def home(request):
     context = {
@@ -15,6 +23,16 @@ class BlogListView(ListView):
     template_name = 'blog/home.html'
     context_object_name = 'blogs'
     ordering = ['-date_posted'] # opadajuce po vremenu
+
+
+class MyBlogsListView(ListView):
+    model = Blog
+    template_name = 'blog/home.html'
+    context_object_name = 'blogs'
+    ordering = ['-date_posted'] 
+
+    def get_queryset(self):
+        return Blog.objects.filter(author = self.request.user)
 
 class BlogDetailView(DetailView):
     model = Blog

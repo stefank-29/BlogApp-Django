@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link nav__link{% if 'blog/add/' in request.path %}--active{% endif %}" href="{% url 'blog-create' %}">
+                        <a class="nav__link nav__link{% if '/add/' in request.path %}--active{% endif %}" href="{% url 'blog-create' %}">
                             <img src="{% static 'blog/images/icons/add.svg' %}" alt="">
                             <span>Add</span>
                         </a>
