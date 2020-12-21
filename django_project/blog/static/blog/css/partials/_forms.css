@@ -9,6 +9,7 @@ textarea {
     white-space: pre-wrap;
     font-family: 'Roboto', sans-serif;
     border-radius: 4px;
+    /* margin-bottom: 1rem; */
 }
 input:focus,
 textarea:focus {
@@ -45,13 +46,20 @@ label {
     margin-bottom: 2rem;
     border-bottom: 1px solid rgb(52, 52, 233);
 }
+.form h2.no-underline {
+    border: none;
+}
 
-input.button {
+input.button.delete {
+    width: 50%;
     margin-top: 2rem;
-    background-color: brown;
+    background-color: rgb(190, 49, 49);
+    color: white;
     cursor: pointer;
 }
+
 input.button.save {
+    margin-top: 2rem;
     color: whitesmoke;
     background: rgb(31, 177, 31);
 }
@@ -59,7 +67,7 @@ input.button.save:hover {
     background: rgb(46, 219, 46);
 }
 input.button:hover {
-    background-color: rgb(199, 67, 67);
+    background-color: rgb(190, 40, 40);
 }
 
 /**** form error messages ****/
@@ -68,7 +76,8 @@ input.button:hover {
     font-size: 1.3rem !important;
 }
 
-.error input {
+.error input,
+.error textarea {
     border: 1px solid rgb(216, 44, 44);
     box-shadow: 0 0 4px 1px rgb(216, 44, 44);
 }
@@ -91,4 +100,21 @@ input.button:hover {
     font-weight: 600;
     font-size: 1.5rem;
     color: rgb(145, 19, 19);
+}
+
+a.button.cancel {
+    padding: 1rem 2rem;
+    margin: 2rem 0 0 1rem;
+    background-color: rgb(156, 152, 152);
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    outline: none;
+    white-space: pre-wrap;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 4px;
+    text-decoration: none;
+}
+a.button.cancel:hover {
+    background-color: rgb(146, 135, 135);
 }

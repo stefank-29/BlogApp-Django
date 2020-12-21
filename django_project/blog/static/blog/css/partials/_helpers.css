@@ -13,6 +13,7 @@ h6 {
 }
 
 .button {
+    margin-top: 2rem;
     border: 0;
     background: yellow;
     color: black;
@@ -20,6 +21,7 @@ h6 {
     font-weight: 600;
 }
 .button.save {
+    margin-top: 2rem;
     background: rgb(33, 179, 33);
 }
 
@@ -27,6 +29,11 @@ h6 {
     background: white;
     padding: 5rem;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card--danger {
+    border: 1px solid red;
+    box-shadow: inset 0 0 7px 2px rgba(255, 0, 0, 0.3);
 }
 
 .title {

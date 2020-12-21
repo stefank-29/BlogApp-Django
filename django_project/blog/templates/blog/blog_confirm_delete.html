@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="inner">
+        <form  method='POST' class="form card card--danger">
+            {% csrf_token %}
+            <h2>Delete Post</h2>
+            <h2 class='no-underline'>Are you sure you want to delete the post "{{ blog.title }}?"</h2>
+            <input type="submit" value='Yes, Delete' name='delete' class="button delete">
+            <a href="{% url 'blog-detail' blog.id %}" class="button cancel">Cancel</a> 
+        </form>
+    </div>
+{% endblock content %}
+            

@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Blog
 
 
@@ -28,10 +28,27 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class BlogUpdateView(LoginRequiredMixin, UpdateView):
+class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Blog
     fields = ['title', 'content']
     
     def form_valid(self, form):  
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    def test_func(self):
+        blog = self.get_object() # blog koji update-ujem
+        if self.request.user == blog.author:
+            return True
+        return False
+    
+class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Blog
+    context_object_name = 'blog'
+    success_url = '/'
+
+    def test_func(self):
+        blog = self.get_object()
+        if self.request.user == blog.author:
+            return True
+        return False
