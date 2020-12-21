@@ -9,6 +9,10 @@
         
         </div>
         <div class="single__details inner">
+            {% if request.user == blog.author %}
+                <a href="{% url 'blog-update' blog.pk %}" class="update">Update</a>
+                <a href="{% url 'blog-delete' blog.pk %}" class="delete">Delete</a>
+            {% endif %}
             <p class="single__date">
                 {{ blog.date_posted|date:"F d, Y" }}
             </p>

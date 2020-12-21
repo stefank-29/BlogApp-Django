@@ -4,10 +4,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Blog
 
 #TODO 
-#? 1 update i delete dugme u blog detail
-#? 2 update olovka
-#? 3 ime autora uz blog
-#? 4 moji blogovi da se izlistaju
 #? 5 paginacija
 #? 6 reset passworda i emaila
 

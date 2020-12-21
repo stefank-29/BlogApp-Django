@@ -1,31 +1,45 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+
 {% block content %}
     <div class="inner">
         <h2>BLOGS</h2>
         <div class="blogs">
         {% if blogs %}
-        {% for blog in blogs %}
-                <div class="blog">
-                    <div class="blog__hero">
-                        <div class="blog__actions"></div>
-                        <img
-                            src="{{ blog.image.url }}"
-                            alt="blog photo"
-                        />
-                        <h2 class="title">
-                            <a href="{% url 'blog-detail' blog.pk %}">{{ blog.title }}</a>
-                        </h2>
+            {% for blog in blogs %}
+                    <div class="blog">
+                        <div class="blog__hero">
+                            <div class="blog__actions">
+                                {% if blog.author == request.user %}
+                                    <div class='blog__action blog__action--edit'>
+                                        <a href="/blog/{{ blog.id }}/update">
+                                            <img src="{% static 'blog/images/icons/edit2.svg' %}" alt="">
+                                        </a>
+                                        
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <img
+                                src="{{ blog.image.url }}"
+                                alt="blog photo"
+                            />
+                            <h2 class="title">
+                                <a href="{% url 'blog-detail' blog.pk %}">{{ blog.title }}</a>
+                            </h2>
+                        </div>
+                        <div class="blog__details">
+                            <p class="author">
+                                {{ blog.author.username }}
+                            </p>
+                            <p>
+                                {{ blog.first_30_words }}
+                            </p>
+                        </div>
                     </div>
-                    <div class="blog__details">
-                        <p>
-                            {{ blog.first_30_words }}
-                        </p>
-                    </div>
-                </div>
-        {% endfor %}
+            {% endfor %}
         </div>
         {% else %}
-        <h2>You don't have any blogs</h2>
+            <h2>You don't have any blogs</h2>
         {% endif %}
     </div>
 {% endblock content %}
