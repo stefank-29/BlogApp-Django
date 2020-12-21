@@ -17,7 +17,10 @@ class Blog(models.Model):
     def get_absolute_url(self): # path to blog
         return reverse("blog-detail", kwargs={"pk": self.pk})
 
-    #? dodavanje metode objektu 
+    #* dodavanje metode objektu 
     def content_as_list(self):
         return self.content.split('\n')
+
+    def first_30_words(self):
+        return " ".join(self.content.split(' ')[:40])
     

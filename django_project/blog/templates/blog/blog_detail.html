@@ -2,7 +2,7 @@
 {% block content %}
     <div class="single">
         <div class="single__hero">
-            <img src="/media/user.svg" alt="blog photo" class="single__image">
+            <img src="{{ blog.image.url }}" alt="blog photo" class="single__image">
             <h2 class="title title--single">
                 <a href="/blog/{{blog.id}}">{{ blog.title }}</a>
             </h2>
