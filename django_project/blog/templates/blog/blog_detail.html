@@ -4,7 +4,7 @@
         <div class="single__hero">
             <img src="/media/user.svg" alt="blog photo" class="single__image">
             <h2 class="title title--single">
-                <a href="/blog/{{blog.id}}"></a>
+                <a href="/blog/{{blog.id}}">{{ blog.title }}</a>
             </h2>
         
         </div>
@@ -12,7 +12,9 @@
             <p class="single__date">
                 {{ blog.date_posted|date:"F d, Y" }}
             </p>
-            <p>{{ blog.content }}</p>
+            {% for text in blog.content_as_list %}
+                <p>{{ text }}</p>
+            {% endfor %}
         </div>
             
             

@@ -8,20 +8,16 @@
                     <div class="blog__hero">
                         <div class="blog__actions"></div>
                         <img
-                            src="blog.image.url"
+                            src="{{ blog.image.url }}"
                             alt="blog photo"
                         />
                         <h2 class="title">
-                            <a href="/blog/concert">Concert</a>
+                            <a href="{% url 'blog-detail' blog.pk %}">{{ blog.title }}</a>
                         </h2>
                     </div>
                     <div class="blog__details">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.
-                            Congue mauris rhoncus aenean vel elit
-                            scelerisque mauris pellentesque. Eu non
+                            {{ blog.content }}
                         </p>
                     </div>
                 </div>
