@@ -3,27 +3,30 @@
     <div class="inner">
         <h2>BLOGS</h2>
         <div class="blogs">
-            <div class="blog">
-                <div class="blog__hero">
-                    <div class="blog__actions"></div>
-                    <img
-                        src="/uploads/a88a4578-f506-4eb0-853b-fd6f960e17eb.jpeg"
-                        alt="blog photo"
-                    />
-                    <h2 class="title">
-                        <a href="/blog/concert">Concert</a>
-                    </h2>
+        {% for blog in blogs %}
+                <div class="blog">
+                    <div class="blog__hero">
+                        <div class="blog__actions"></div>
+                        <img
+                            src="blog.image.url"
+                            alt="blog photo"
+                        />
+                        <h2 class="title">
+                            <a href="/blog/concert">Concert</a>
+                        </h2>
+                    </div>
+                    <div class="blog__details">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua.
+                            Congue mauris rhoncus aenean vel elit
+                            scelerisque mauris pellentesque. Eu non
+                        </p>
+                    </div>
                 </div>
-                <div class="blog__details">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
-                        Congue mauris rhoncus aenean vel elit
-                        scelerisque mauris pellentesque. Eu non
-                    </p>
-                </div>
-            </div>
+        {% endfor %}
         </div>
+
     </div>
 {% endblock content %}

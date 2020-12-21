@@ -21,7 +21,7 @@ class BlogDetailView(DetailView):
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog
-    fields = ['title', 'content']
+    fields = ['title', 'image', 'content']
     
     def form_valid(self, form):  # postavi da je autor bloga ulogovani user pa onda validira
         form.instance.author = self.request.user
@@ -30,7 +30,7 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
 
 class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Blog
-    fields = ['title', 'content']
+    fields = ['title', 'image', 'content']
     
     def form_valid(self, form):  
         form.instance.author = self.request.user

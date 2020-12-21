@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="inner">
-        <form  method='POST' class="form card">
+        <form  method='POST' class="form card" enctype="multipart/form-data">
             {% csrf_token %}
             <h2>Blog Post</h2>
             {{ form|crispy }}
