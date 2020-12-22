@@ -4,7 +4,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Blog
 
 #TODO 
-#? 1 paginacija
 #? 2 reset passworda i emaila
 #? 3 sort by date
 #? 4 front validation za registraciju i login

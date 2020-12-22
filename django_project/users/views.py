@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 
 def register(request):
+    if request.user.is_authenticated:
+        messages.info(request, "You are already logged in")
+        return redirect('/')
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
