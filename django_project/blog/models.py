@@ -22,5 +22,5 @@ class Blog(models.Model):
         return self.content.split('\n')
 
     def first_30_words(self):
-        return " ".join(self.content.split(' ')[:40])
+        return " ".join(self.content.split(' ')[:50])
     

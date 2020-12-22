@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')), # mapira na url-ove iz bloga
     path('register/', user_views.register, name='register'),
-    path('login/', user_views.MyLoginView.as_view(),name='login'),
+    path('login/', user_views.MyLoginView.as_view(redirect_authenticated_user=True),name='login'),
     path('logout/', user_views.MyLogoutView.as_view(), name='logout'),
     path('profile/', user_views.profile, name='profile'),
 ]
