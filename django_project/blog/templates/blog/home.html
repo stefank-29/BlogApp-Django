@@ -19,10 +19,15 @@
                                     </div>
                                 {% endif %}
                             </div>
+                            {% if blog.image %}
                             <img
                                 src="{{ blog.image.url }}"
                                 alt="blog photo"
                             />
+                            {% else %}
+                                <img src="{% static 'blog/images/icons/logo.png' %}" alt="blog photo">                
+
+                            {% endif %}
                             <h2 class="title">
                                 <a href="{% url 'blog-detail' blog.pk %}">{{ blog.title }}</a>
                             </h2>
