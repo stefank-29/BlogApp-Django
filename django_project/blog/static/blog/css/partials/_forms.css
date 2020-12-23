@@ -126,3 +126,11 @@ a.button.cancel {
 a.button.cancel:hover {
     background-color: rgb(146, 135, 135);
 }
+
+a.link {
+    display: block;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 1rem;
+}
