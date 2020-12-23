@@ -4,7 +4,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Blog
 
 #TODO 
-#? 2 reset passworda i emaila
 #? 3 sort by date
 #? 4 front validation za registraciju i login
 
@@ -32,7 +31,7 @@ class MyBlogsListView(LoginRequiredMixin, ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        return Blog.objects.filter(author = self.request.user)
+        return Blog.objects.filter(author = self.request.user).order_by('-date_posted')
 
 class BlogDetailView(DetailView):
     model = Blog
