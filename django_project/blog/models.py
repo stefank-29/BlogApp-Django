@@ -24,3 +24,11 @@ class Blog(models.Model):
     def first_30_words(self):
         return " ".join(self.content.split(' ')[:50])
     
+class Comment(models.Model):
+    blog = models.ForeignKey(Blog, related_name='comments', on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    comment = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'{self.blog.title} {self.name}'

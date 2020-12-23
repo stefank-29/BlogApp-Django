@@ -1,0 +1,34 @@
+.reviewer {
+    position: relative;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+.reviewer textarea {
+    border: 0;
+    outline: 0;
+    font-size: 2rem;
+    padding: 2rem;
+    height: 200px;
+}
+.reviewer__meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.reviewer__meta > * {
+    flex: 1;
+}
+.reviewer__meta input.button {
+    margin-top: 0;
+    border: 0;
+    background: rgb(31, 177, 31);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+.reviewer__meta input.button:hover {
+    background-color: rgb(46, 219, 46);
+}

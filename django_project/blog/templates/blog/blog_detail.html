@@ -24,8 +24,19 @@
             {% for text in blog.content_as_list %}
                 <p>{{ text }}</p>
             {% endfor %}
+
+            {% if user.is_authenticated %}
+                <form class='reviewer' action="/reviews/{{ blog.id }}/" method='POST'>
+                    {% csrf_token %}
+                    {{ form }}   
+                    <div class="reviewer__meta">
+                        <input type="submit" value='Submit Comment' class="button">
+                    </div>
+                </form>
+            {% endif %}
+
         </div>
-            
+        
             
     
     </div>

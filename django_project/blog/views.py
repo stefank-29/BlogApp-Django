@@ -1,7 +1,11 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Blog
+from .forms import CommentForm
+from django.contrib import messages 
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 
 
 def home(request): 
@@ -19,7 +23,7 @@ class BlogListView(ListView):
 
     
 
-class MyBlogsListView(LoginRequiredMixin, ListView):
+class MyBlogsListView(LoginRequiredMixin,  ListView):
     model = Blog
     template_name = 'blog/home.html'
     context_object_name = 'blogs'
@@ -29,8 +33,11 @@ class MyBlogsListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Blog.objects.filter(author = self.request.user).order_by('-date_posted')
 
-class BlogDetailView(DetailView):
+class BlogDetailView(FormView,DetailView):
     model = Blog
+    form_class = CommentForm
+    fields = ['comment']
+    
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog
@@ -65,3 +72,22 @@ class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == blog.author:
             return True
         return False
+
+@login_required
+def addReview(request, pk):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid() :
+            obj = form.save(commit=False)
+            obj.name = request.user.username
+            obj.blog = Blog.objects.filter(pk=pk).first()
+            obj.save()
+            messages.success(request, 'Your comment has been submited.')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+            
+        
+
+    
+
+    
