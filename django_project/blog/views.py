@@ -3,13 +3,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Blog
 
-#TODO 
-#? 3 sort by date
-#? 4 front validation za registraciju i login
 
-
-
-def home(request):
+def home(request): 
     context = {
         'posts': Blog.objects.all()
     }
@@ -22,6 +17,7 @@ class BlogListView(ListView):
     ordering = ['-date_posted'] # opadajuce po vremenu
     paginate_by = 3
 
+    
 
 class MyBlogsListView(LoginRequiredMixin, ListView):
     model = Blog
