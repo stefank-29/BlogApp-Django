@@ -79,12 +79,13 @@ def addReview(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid() :
             obj = form.save(commit=False)
-            obj.name = request.user.username
+            obj.user = request.user
             obj.blog = Blog.objects.filter(pk=pk).first()
             obj.save()
             messages.success(request, 'Your comment has been submited.')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-
+        
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'), form)
             
         
 

@@ -34,6 +34,29 @@
                     </div>
                 </form>
             {% endif %}
+            {% if not blog.comments.all %}
+                <p>No comments yet...</p>
+
+            {% else %}
+                <div class="reviews">
+                {% for comment in blog.comments.all %}
+                    <div class="review">
+                        <div class="review__header">
+                            <div class="review__author">
+                                <img src="{{ comment.user.profile.image.url }}" alt="" class="avatar">
+                                <p>{{ comment.user.username }}</p>
+                                <p class='review__time' datetime={{comment.date_posted}}>{{comment.date_posted|date:'D d M Y'}} </p>
+                            </div>
+
+                        </div>
+                        <div class="review__body">
+                            <p> {{ comment.comment }}</p>
+                        
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
 
         </div>
         
