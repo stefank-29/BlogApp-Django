@@ -29,6 +29,6 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
-
+   
     def __str__(self):
-        return f'{self.blog.title} {self.name}'
+        return f'{self.blog.title} {self.user.username}'
