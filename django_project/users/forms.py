@@ -11,7 +11,7 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User # model sa kojim forma interaguje
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
-
+    
 
 class UserUpdateForm(forms.ModelForm):
     first_name = forms.CharField(required=False, max_length=100) 

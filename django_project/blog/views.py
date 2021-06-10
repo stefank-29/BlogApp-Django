@@ -33,7 +33,7 @@ class MyBlogsListView(LoginRequiredMixin,  ListView):
     def get_queryset(self):
         return Blog.objects.filter(author = self.request.user).order_by('-date_posted')
 
-class BlogDetailView(FormView,DetailView):
+class BlogDetailView(FormView, DetailView):
     model = Blog
     form_class = CommentForm
     fields = ['comment']

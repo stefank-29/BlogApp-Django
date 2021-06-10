@@ -9,7 +9,7 @@
     margin: 1.5em 1rem 1.5rem 0;
     width: calc(33.3333% - 1.25em);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
-    animation: down2Up 0.5s ease-in-out 1 forwards;
+    animation: down2Up 1s ease-in-out 1 forwards;
 }
 
 .blog--wide {
@@ -92,7 +92,7 @@
     background: linear-gradient(45deg, rgba(5, 179, 214, 1) 0%, rgba(5, 179, 214, 0) 70%),
         linear-gradient(135deg, rgba(9, 88, 236, 1) 10%, rgba(9, 88, 236, 0) 80%),
         linear-gradient(315deg, rgb(225, 75, 5) 100%, rgba(5, 225, 41, 0) 70%);
-    opacity: 0.6;
+    opacity: 0.4;
     z-index: 1;
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
 }

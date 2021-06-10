@@ -2,17 +2,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {% if title %}
-            <title>Blog app - {{ title }}</title>
-        {% else %}
-            <title>Blog app</title>
-        {% endif %}
+        <title>Admin dashboard</title>
 
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="{% static 'blog/css/style.css' %}"
-        />
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}" />
         <link
             rel="shortcut icon"
             type="image/png"
@@ -31,72 +23,94 @@
                 <div class="nav__section nav__section--pages">
                     <li class="nav__item">
                         <a class="nav__link nav__link--logo" href="{% url 'blog-home' %}">
-                            <img src="{% static 'blog/images/icons/logo.svg' %}" alt="blog logo">
+                            <img src="{% static 'blog/images/icons/logo.svg' %}" alt="blog logo" />
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link nav__link{% if '/blogs' in request.path %}--active{% endif %}" href="/blogs">
-                            <img src="{% static 'blog/images/icons/blog.svg' %}" alt="">
+                        <a
+                            class="nav__link nav__link{% if '/blogs' in request.path %}--active{% endif %}"
+                            href="/blogs"
+                        >
+                            <img src="{% static 'blog/images/icons/blog.svg' %}" alt="" />
                             <span>Blogs</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link nav__link{% if request.path == '/myblogs' %}--active{% endif %}" href="/myblogs">
-                            <img src="{% static 'blog/images/icons/blogs.svg' %}" alt="">
+                        <a
+                            class="nav__link nav__link{% if request.path == '/myblogs' %}--active{% endif %}"
+                            href="/myblogs"
+                        >
+                            <img src="{% static 'blog/images/icons/blogs.svg' %}" alt="" />
                             <span>My Blogs</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link nav__link{% if '/add/' in request.path %}--active{% endif %}" href="{% url 'blog-create' %}">
-                            <img src="{% static 'blog/images/icons/add.svg' %}" alt="">
+                        <a
+                            class="nav__link nav__link{% if '/add/' in request.path %}--active{% endif %}"
+                            href="{% url 'blog-create' %}"
+                        >
+                            <img src="{% static 'blog/images/icons/add.svg' %}" alt="" />
                             <span>Add</span>
                         </a>
                     </li>
                 </div>
                 <div class="nav__section nav__section--user">
                     {% if user.is_authenticated %}
-                         <li class="nav__item">
-                            <a class="nav__link nav__link{% if  '/logout' in request.path %}--active{% endif %}" href="{% url 'logout' %}">
-                                <img src="{% static 'blog/images/icons/logout.svg' %}" alt="">
-                                <span>Logout</span>
-                            </a>
-                        </li>
-                        <li class="nav__item">  
-                            <a class="nav__link nav__link{% if 'profile' in request.path %}--active{% endif %}" href="{% url 'profile' %}">
-                                <img class='avatar' src="{{ user.profile.image.url }}" alt="users profile">
-                            </a>
-                        </li>
+                    <li class="nav__item">
+                        <a
+                            class="nav__link nav__link{% if '/logout' in request.path %}--active{% endif %}"
+                            href="{% url 'logout' %}"
+                        >
+                            <img src="{% static 'blog/images/icons/logout.svg' %}" alt="" />
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a
+                            class="nav__link nav__link{% if 'profile' in request.path %}--active{% endif %}"
+                            href="{% url 'profile' %}"
+                        >
+                            <img
+                                class="avatar"
+                                src="{{ user.profile.image.url }}"
+                                alt="users profile"
+                            />
+                        </a>
+                    </li>
                     {% else %}
-                        <li class="nav__item">
-                            <a class="nav__link nav__link{% if '/register' in request.path %}--active{% endif %}" href="{% url 'register' %}">Register</a>
-                        </li>
-                        <li class="nav__item">  
-                            <a class="nav__link nav__link{% if '/login' in request.path   %}--active{% endif %}" href="{% url 'login' %}">Log In</a>
-                        </li>
+                    <li class="nav__item">
+                        <a
+                            class="nav__link nav__link{% if '/register' in request.path %}--active{% endif %}"
+                            href="{% url 'register' %}"
+                            >Register</a
+                        >
+                    </li>
+                    <li class="nav__item">
+                        <a
+                            class="nav__link nav__link{% if '/login' in request.path %}--active{% endif %}"
+                            href="{% url 'login' %}"
+                            >Log In</a
+                        >
+                    </li>
                     {% endif %}
-
                 </div>
             </nav>
         </header>
-        {% block messages %}
-            {% if messages %}
-            <div class="inner">
-                <div class="flash-messages">
-                        {% for message in messages %}
-                            <div class="flash flash--{{ message.tags }}">
-                                <p class="flash__text">{{ message }}</p>
-                                <button class="flash__remove" onclick="this.parentElement.remove()">&times;</button>
-                            </div>
-                        {% endfor %}
+        {% block messages %} {% if messages %}
+        <div class="inner">
+            <div class="flash-messages">
+                {% for message in messages %}
+                <div class="flash flash--{{ message.tags }}">
+                    <p class="flash__text">{{ message }}</p>
+                    <button class="flash__remove" onclick="this.parentElement.remove()">
+                        &times;
+                    </button>
                 </div>
+                {% endfor %}
             </div>
-            {% endif %}
-        {% endblock messages %}
-
-        <div class="content">
-            {% block content %}
-            {% endblock content %}
         </div>
-  </body>
+        {% endif %} {% endblock messages %}
 
+        <div class="content">{% block content %} {% endblock content %}</div>
+    </body>
 </html>

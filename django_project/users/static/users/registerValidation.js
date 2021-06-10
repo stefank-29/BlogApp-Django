@@ -32,6 +32,7 @@ const formValidation = (() => {
             return;
         } else {
             isValid = false;
+            email.style.border = '2px solid red';
             p.textContent = 'Please enter a valid email address.';
             email.parentNode.appendChild(p);
             return;
