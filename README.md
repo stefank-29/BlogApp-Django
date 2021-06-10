@@ -8,7 +8,7 @@ This is a blog app built with JavaScript/Django.
 
 # Table of contents
 
--   [Project Title](#sneakers-shop)
+-   [Blog app](#blog-app)
 -   [Table of contents](#table-of-contents)
 -   [Installation](#installation)
 -   [Technologies](#built-with)
