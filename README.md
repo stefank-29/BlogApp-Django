@@ -19,7 +19,7 @@ This is a blog app built with JavaScript/Django.
 Clone repository:
 
 ```
-git clone https://github.com/stefank-29/SneakersShop-Next.js.git
+git clone https://github.com/stefank-29/BlogApp-Django.git
 ```
 
 Run project:
